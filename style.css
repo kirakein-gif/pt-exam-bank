@@ -19,6 +19,7 @@ button{font:inherit}
 .hint{font-size:11px;line-height:1.5;color:#8f9bb2;margin:9px 2px 0}
 .stat-row{display:flex;justify-content:space-between;padding:7px 0;color:#bfc8db;font-size:13px}.stat-row strong{color:#fff}
 .shortcut-note{margin-top:auto;color:#8e9ab1;font-size:11px;line-height:1.6}.shortcut-note strong{display:block;color:#c6cfdf}
+.creator-credit{padding-top:10px;border-top:1px solid rgba(255,255,255,.08);color:#738097;font-size:11px;letter-spacing:.02em}
 .main{padding:34px 42px 60px}
 .topbar{max-width:1080px;margin:0 auto 22px;display:flex;justify-content:space-between;align-items:end}
 .eyebrow{font-size:11px;font-weight:900;color:#3157d5;letter-spacing:.16em}.topbar h2{font-size:28px;margin:7px 0 0}
