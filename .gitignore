@@ -1,0 +1,9 @@
+# 개인용 원본 자료와 문제은행은 GitHub에 올리지 않습니다.
+source_pdfs/
+local_data/
+questions.local.json
+*.pdf
+
+# OS
+Thumbs.db
+.DS_Store
