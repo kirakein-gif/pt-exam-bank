@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 PT국시 문제은행 갱신기
+제작자: 나대현
 - 문제 PDF + 정답 PDF + 풀이 PDF -> 개별 questions.local.json
 - 모든 OCR/분석은 PC 안에서 처리합니다.
 - 현재 KPTLE 최다빈출 적중문제 계열 레이아웃에 최적화되어 있습니다.
@@ -496,6 +497,7 @@ def build_bank(bank_name, problem_pdf, answer_pdf, explanation_pdf,
 
     bank = {
         "name": bank_name,
+        "creator": "나대현",
         "version": 1,
         "source_type": "local_pdf_ocr",
         "questions": bank_questions,
@@ -524,7 +526,7 @@ def create_review_html(bank, path: Path, issues: list[str]):
 <html lang="ko"><head><meta charset="utf-8"><title>PT국시 문제은행 검수</title>
 <style>
 body{font-family:'Malgun Gothic',sans-serif;background:#f4f6fa;color:#182033;margin:0;padding:28px}
-.wrap{max-width:1100px;margin:auto} h1{margin:0 0 8px} .sub{color:#69758a;margin-bottom:22px}
+.wrap{max-width:1100px;margin:auto} h1{margin:0 0 8px} .sub{color:#69758a;margin-bottom:22px} .creator{color:#8b95a5;font-size:12px;margin:-12px 0 18px}
 .box,.q{background:#fff;border:1px solid #e0e5ee;border-radius:14px;padding:18px;margin:12px 0}
 .q.bad{border-color:#e9a7a1} label{display:block;font-size:12px;font-weight:700;color:#6f7b8f;margin:9px 0 5px}
 input[type=text],textarea,select{width:100%;box-sizing:border-box;border:1px solid #d8deea;border-radius:8px;padding:9px;font:inherit}
@@ -532,7 +534,7 @@ textarea{min-height:72px} .choices{display:grid;grid-template-columns:1fr 1fr;ga
 button{border:0;background:#3157d5;color:#fff;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}
 .warn{color:#a33} .toolbar{position:sticky;top:0;background:#f4f6fa;padding:8px 0;z-index:2}
 </style></head><body><div class="wrap">
-<h1>PT국시 문제은행 검수</h1><div class="sub" id="summary"></div>
+<h1>PT국시 문제은행 검수</h1><div class="sub" id="summary"></div><div class="creator">제작자 · 나대현</div>
 <div class="box"><strong>자동 검사</strong><ul>""" + issues_html + """</ul></div>
 <div class="toolbar"><button onclick="downloadJson()">수정된 문제은행 JSON 다운로드</button></div>
 <div id="list"></div>
@@ -644,6 +646,8 @@ class App:
 
         self.btn = ttk.Button(frm, text="문제은행 만들기", command=self.start)
         self.btn.pack(anchor="e", pady=(4, 0))
+
+        ttk.Label(frm, text="제작자 · 나대현").pack(anchor="w", pady=(8, 0))
 
         grid.columnconfigure(1, weight=1)
         self._same_changed()
