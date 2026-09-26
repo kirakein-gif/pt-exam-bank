@@ -24,6 +24,7 @@ let streak = 0;
 const $ = id => document.getElementById(id);
 const els = {
   bankName:$("bankName"),bankCount:$("bankCount"),importBtn:$("importBtn"),fileInput:$("fileInput"),useDemoBtn:$("useDemoBtn"),
+  helpBtn:$("helpBtn"),helpModal:$("helpModal"),helpCloseBtn:$("helpCloseBtn"),
   todayAttempts:$("todayAttempts"),todayAccuracy:$("todayAccuracy"),streak:$("streak"),modeTitle:$("modeTitle"),
   quizCard:$("quizCard"),emptyState:$("emptyState"),emptyTitle:$("emptyTitle"),emptyText:$("emptyText"),
   setChip:$("setChip"),sessionChip:$("sessionChip"),subjectChip:$("subjectChip"),numberChip:$("numberChip"),
@@ -207,3 +208,10 @@ document.addEventListener("keydown",e=>{
 });
 
 updateBankUI();updateStatsUI();rebuildQueue();nextQuestion();
+
+function openHelp(){els.helpModal.classList.remove("hidden");document.body.style.overflow="hidden"}
+function closeHelp(){els.helpModal.classList.add("hidden");document.body.style.overflow=""}
+els.helpBtn?.addEventListener("click",openHelp);
+els.helpCloseBtn?.addEventListener("click",closeHelp);
+document.querySelectorAll("[data-close-help]").forEach(el=>el.addEventListener("click",closeHelp));
+document.addEventListener("keydown",e=>{if(e.key==="Escape" && !els.helpModal?.classList.contains("hidden"))closeHelp()});
