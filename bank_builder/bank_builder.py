@@ -644,13 +644,35 @@ class App:
         self.log.column("msg", width=700)
         self.log.pack(fill="both", expand=True, pady=8)
 
-        self.btn = ttk.Button(frm, text="문제은행 만들기", command=self.start)
-        self.btn.pack(anchor="e", pady=(4, 0))
+        action_row = ttk.Frame(frm)
+        action_row.pack(fill="x", pady=(4, 0))
+        ttk.Button(action_row, text="사용설명서", command=self.show_help).pack(side="left")
+        self.btn = ttk.Button(action_row, text="문제은행 만들기", command=self.start)
+        self.btn.pack(side="right")
 
         ttk.Label(frm, text="제작자 · 나대현").pack(anchor="w", pady=(8, 0))
 
         grid.columnconfigure(1, weight=1)
         self._same_changed()
+
+    def show_help(self):
+        messagebox.showinfo(
+            "PT국시 문제은행 갱신기 사용설명서",
+            "1. 문제 PDF를 선택합니다.\n"
+            "2. 정답 PDF를 선택합니다.\n"
+            "3. 풀이 PDF를 선택합니다.\n"
+            "   - 정답과 풀이가 같은 PDF면 체크 상태로 두면 됩니다.\n\n"
+            "4. 문제은행 이름을 적습니다.\n"
+            "5. 각 PDF에서 사용할 페이지 범위를 적습니다.\n"
+            "   예) 9-10 / 5 / 5-6\n"
+            "6. 시작 문제번호와 끝 문제번호를 적습니다.\n"
+            "7. 저장 위치를 선택합니다.\n"
+            "8. [문제은행 만들기]를 누릅니다.\n\n"
+            "완료되면 검수 화면이 자동으로 열립니다.\n"
+            "문제·보기·정답·풀이를 확인한 뒤 수정된 JSON을 내려받아\n"
+            "PT국시 문제풀이 프로그램에서 불러오면 됩니다.\n\n"
+            "※ PDF와 OCR 처리는 이 PC 안에서만 진행됩니다."
+        )
 
     def _row_file(self, parent, row, label, var):
         ttk.Label(parent, text=label).grid(row=row, column=0, sticky="w", pady=6)
