@@ -49,3 +49,22 @@ button{font:inherit}
 .empty-state{padding:80px 30px;text-align:center}.empty-icon{font-size:34px;color:#98a3b7}.empty-state h3{margin:14px 0 8px}.empty-state p{margin:0;color:#7f8a9e}
 .hidden{display:none!important}.toast{position:fixed;right:24px;bottom:24px;background:#172033;color:#fff;padding:12px 16px;border-radius:10px;font-size:13px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translateY(0)}
 @media(max-width:900px){.app-shell{grid-template-columns:1fr}.sidebar{position:static}.main{padding:24px 16px}.topbar h2{font-size:23px}.quiz-card{padding:22px 18px}.question-block h3{font-size:19px}.shortcut-note{display:none}}
+
+.help-btn{width:100%;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#d7deec;border-radius:10px;padding:10px 12px;cursor:pointer;font-weight:800}
+.help-btn:hover{background:rgba(255,255,255,.1)}
+.help-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px}
+.help-backdrop{position:absolute;inset:0;background:rgba(8,14,28,.68);backdrop-filter:blur(3px)}
+.help-panel{position:relative;width:min(920px,96vw);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.28);border:1px solid #e2e7ef}
+.help-head{position:sticky;top:0;z-index:2;background:#fff;display:flex;justify-content:space-between;align-items:flex-start;padding:24px 26px 18px;border-bottom:1px solid #e8ecf2}
+.help-head h2{margin:6px 0 0;font-size:24px}
+.help-close{border:0;background:#f1f3f7;color:#59657a;width:36px;height:36px;border-radius:10px;font-size:24px;line-height:1;cursor:pointer}
+.help-body{padding:12px 26px 28px}
+.guide-section{display:grid;grid-template-columns:48px 1fr;gap:15px;padding:20px 0;border-bottom:1px solid #edf0f5}
+.guide-section:last-child{border-bottom:0}
+.guide-step{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#edf2ff;color:#3157d5;font-weight:900;font-size:12px}
+.guide-section h3{margin:0 0 8px;font-size:17px}
+.guide-section p{margin:5px 0;color:#566177;line-height:1.7;font-size:14px}
+.guide-note{padding:9px 11px;background:#f6f8fb;border-radius:9px}
+.guide-warning{margin-top:8px;padding:18px;border:1px solid #f1df9c;background:#fffaf0;border-radius:14px}
+.guide-warning .guide-step{background:#fff0b8;color:#7c5b00}
+@media(max-width:640px){.help-modal{padding:10px}.help-head{padding:18px}.help-body{padding:8px 18px 22px}.guide-section{grid-template-columns:40px 1fr}.help-head h2{font-size:20px}}
